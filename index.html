@@ -30,11 +30,20 @@ rgba(0,0,0,0.1);
     </style>
 </head>
 <body>
-        <h1>🍰Tatlı Makalelerim</h1>
+        <h1>🍰 My Sweet Articles </h1>
 
         <article>
             <h2İlk Yazım</h2>
-            <p>Buraya tatlı tariflerinizi veya denemelerinizi yazın...</p>
+            <p>Recipes</p>
+                <ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a> 
+      <span> — {{ post.date | date: "%d.%m.%Y" }}</span>
+    </li>
+  {% endfor %}
+</ul>
+
         </article>
 </body>
 </html>      
