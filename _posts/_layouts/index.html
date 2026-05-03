@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .header { text-align: center; padding: 50px 0; }
+        .post-list { list-style: none; padding: 0; max-width: 600px; margin: 0 auto; }
+        .post-card { background: white; margin: 15px 0; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; border-left: 5px solid #f5a623; }
+        .post-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .post-link { color: #333; text-decoration: none; font-size: 1.4em; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🍰 My Sweet Articles</h1>
+        <p>En yeni tariflerim aşağıda listelenmiştir.</p>
+    </div>
+
+    <ul class="post-list">
+        {% for post in site.posts %}
+        <li class="post-card">
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <div style="color: #999; margin-top: 5px;">{{ post.date | date: "%d.%m.%Y" }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
